@@ -106,7 +106,7 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh quotes 3
 bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh image
 
 # Setup daily delivery
-bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 default
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> text
 ```
 
 ## API Response Format

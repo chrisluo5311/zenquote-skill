@@ -230,8 +230,8 @@ Examples:
   zenquote today
   zenquote random
   zenquote quotes 3
-  zenquote setup 8248485303 text      # Daily text quote
-  zenquote setup 8248485303 image     # Daily image quote
+  zenquote setup <chat_id> text       # Daily text quote
+  zenquote setup <chat_id> image      # Daily image quote
 
 API: https://zenquotes.io/
 HELP

@@ -55,12 +55,12 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 
 ### Text Quote (default)
 ```bash
-bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 text default
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> text [account_id]
 ```
 
 ### Image Quote
 ```bash
-bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 image default
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> image [account_id]
 ```
 
 This creates a cron job that sends a quote/image every day at 9:00 AM.
