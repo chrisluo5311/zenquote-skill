@@ -77,15 +77,12 @@ format_quote() {
   fi
   
   cat << EOF
-🌟 Daily Inspiration
-
 "${quote}"
 
 — ${author}
 
 ━━━━━━━━━━━━━━━━━━
-Inspirational quotes provided by ZenQuotes API
-https://zenquotes.io/
+Provided by [ZenQuotes API](https://zenquotes.io/)
 EOF
 }
 
