@@ -74,7 +74,8 @@ format_quote() {
 — ${author}
 
 ━━━━━━━━━━━━━━━━━━
-Provided by ZenQuotes API
+Inspirational quotes provided by ZenQuotes API
+https://zenquotes.io/
 EOF
 }
 
@@ -112,7 +113,8 @@ get_quotes() {
   done
   
   echo "━━━━━━━━━━━━━━━━━━"
-  echo "Provided by ZenQuotes API"
+  echo "Inspirational quotes provided by ZenQuotes API"
+  echo "https://zenquotes.io/"
 }
 
 # Setup daily cron job

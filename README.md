@@ -53,10 +53,17 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 default
 
 This creates a cron job that sends a quote every day at 9:00 AM.
 
-## API Limits
+## API Limits & Attribution
 
-- 5 requests per 30 seconds
-- Attribution required when displaying quotes
+- **Rate Limit**: 5 requests per 30 seconds
+- **Attribution Required**: You MUST display the following attribution when using quotes:
+
+> Inspirational quotes provided by [ZenQuotes API](https://zenquotes.io/)
+
+Or in HTML:
+```html
+Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a>
+```
 
 ## Installation
 

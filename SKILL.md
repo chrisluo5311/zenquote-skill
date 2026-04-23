@@ -93,11 +93,23 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 default
 ]
 ```
 
-## Attribution
+## Attribution (Required)
 
-When using this API, please include attribution:
+⚠️ **When using the free API, you MUST include the following attribution:**
 
 > Inspirational quotes provided by [ZenQuotes API](https://zenquotes.io/)
+
+**Markdown format:**
+```markdown
+Inspirational quotes provided by [ZenQuotes API](https://zenquotes.io/)
+```
+
+**HTML format:**
+```html
+Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a>
+```
+
+This skill automatically includes attribution in all outputs.
 
 ## API Limits
 
