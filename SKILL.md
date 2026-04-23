@@ -64,7 +64,7 @@ The script will download the image and output:
 {"image_path": "/tmp/zenquote_image.jpg", "caption": "Provided by ZenQuotes API https://zenquotes.io/"}
 ```
 
-**AI must then send the image using the message tool with the provided caption.**
+**AI must then send the image using the message tool with the provided caption. No additional text should be added.**
 
 ## Daily Cron Setup
 
