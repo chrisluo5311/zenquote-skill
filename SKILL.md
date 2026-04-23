@@ -50,7 +50,7 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 - `/zenQuote random` - Random quote
 - `/zenQuote quotes` - Get 5 quotes
 - `/zenQuote image` - Get and send quote image
-- `/zenQuote setup` - Configure daily delivery
+- `/zenQuote setup` - Configure daily delivery (text or image)
 
 ## Image Command Handling
 
@@ -68,13 +68,19 @@ The script will download the image and output:
 
 ## Daily Cron Setup
 
-To automatically send a quote every morning:
+To automatically send a quote every morning at 9:00 AM:
 
+### Daily Text Quote (default)
 ```bash
-bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> [account_id]
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> text [account_id]
 ```
 
-This creates a cron job that runs at 9:00 AM daily.
+### Daily Image Quote
+```bash
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id> image [account_id]
+```
+
+This creates a cron job that runs daily at 9:00 AM.
 
 ## Examples
 

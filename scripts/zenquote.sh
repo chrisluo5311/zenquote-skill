@@ -127,19 +127,33 @@ get_quotes() {
 # Setup daily cron job
 setup_daily_cron() {
   local chat_id="$1"
-  local account_id="${2:-default}"
+  local type="${2:-text}"
+  local account_id="${3:-default}"
   
   if [[ -z "$chat_id" ]]; then
     echo '{"error": "Chat ID required"}'
     return 1
   fi
   
-  # Create cron job JSON
-  local cron_config="$HOME/.openclaw/cron/zenquote-daily.json"
+  # Validate type
+  if [[ "$type" != "text" && "$type" != "image" ]]; then
+    echo '{"error": "Type must be text or image"}'
+    return 1
+  fi
+  
+  local job_name="zenquote-daily-${type}"
+  local cron_config="$HOME/.openclaw/cron/${job_name}.json"
+  local message_cmd=""
+  
+  if [[ "$type" == "image" ]]; then
+    message_cmd="/zenQuote image"
+  else
+    message_cmd="/zenQuote today"
+  fi
   
   cat > "$cron_config" << EOF
 {
-  "name": "zenquote-daily",
+  "name": "${job_name}",
   "enabled": true,
   "schedule": {
     "kind": "cron",
@@ -148,7 +162,7 @@ setup_daily_cron() {
   },
   "payload": {
     "kind": "agentTurn",
-    "message": "Send daily inspirational quote from ZenQuotes API to telegram:${chat_id} using the zenquote skill. Use /zenQuote today command.",
+    "message": "Send daily inspirational ${type} from ZenQuotes API to telegram:${chat_id} using the zenquote skill. Use ${message_cmd} command.",
     "model": "opencode-go/kimi-k2.5"
   },
   "delivery": {
@@ -160,7 +174,7 @@ setup_daily_cron() {
 }
 EOF
   
-  echo "{\"setup\": true, \"message\": \"Daily quote scheduled for 9:00 AM\", \"chat_id\": \"${chat_id}\"}"
+  echo "{\"setup\": true, \"type\": \"${type}\", \"message\": \"Daily ${type} scheduled for 9:00 AM\", \"chat_id\": \"${chat_id}\"}"
 }
 
 # CLI Main
@@ -190,8 +204,9 @@ main() {
       ;;
     setup)
       local chat_id="$1"
-      local account_id="${2:-default}"
-      setup_daily_cron "$chat_id" "$account_id"
+      local type="${2:-text}"
+      local account_id="${3:-default}"
+      setup_daily_cron "$chat_id" "$type" "$account_id"
       ;;
     help|*)
       cat << 'HELP'
@@ -204,7 +219,8 @@ Commands:
   random                   Get random quote  
   quotes [count]           Get multiple quotes (default 5)
   image                    Get quote image URL
-  setup <chat_id> [account] Setup daily quote cron job at 9:00 AM
+  setup <chat_id> [type] [account] Setup daily cron job at 9:00 AM
+                                     type: text (default) or image
 
 Free API Limits:
   - 5 requests per 30 seconds
@@ -214,7 +230,8 @@ Examples:
   zenquote today
   zenquote random
   zenquote quotes 3
-  zenquote setup 8248485303
+  zenquote setup 8248485303 text      # Daily text quote
+  zenquote setup 8248485303 image     # Daily image quote
 
 API: https://zenquotes.io/
 HELP

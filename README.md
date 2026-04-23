@@ -41,7 +41,7 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 | `random` | Get random quote |
 | `quotes [count]` | Get multiple quotes (default 5) |
 | `image` | Get and download quote image |
-| `setup <chat_id>` | Setup daily cron job |
+| `setup <chat_id> [type]` | Setup daily cron job (type: text or image) |
 
 ## User Commands
 
@@ -53,11 +53,17 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 
 ## Daily Cron Setup
 
+### Text Quote (default)
 ```bash
-bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 default
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 text default
 ```
 
-This creates a cron job that sends a quote every day at 9:00 AM.
+### Image Quote
+```bash
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup 8248485303 image default
+```
+
+This creates a cron job that sends a quote/image every day at 9:00 AM.
 
 ## API Limits & Attribution
 
