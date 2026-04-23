@@ -19,6 +19,14 @@ ZenQuote skill fetches inspirational quotes from ZenQuotes.io API and delivers t
 
 **API Limits:** 5 requests per 30 seconds. Attribution required.
 
+## Dependencies
+
+This skill requires the following system tools:
+- `curl` - For HTTP requests to ZenQuotes API
+- `jq` - For JSON parsing
+
+These are usually pre-installed on most Linux/macOS systems.
+
 ## Quick Start
 
 ### Get Today's Quote

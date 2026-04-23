@@ -14,6 +14,12 @@ ZenQuote skill fetches inspirational quotes from ZenQuotes.io API and delivers t
 - ✅ Quote images (`image`)
 - ✅ Automated daily delivery (`setup`)
 
+## Dependencies
+
+This skill requires:
+- `curl` - For HTTP requests (usually pre-installed)
+- `jq` - For JSON parsing (usually pre-installed)
+
 ## Quick Start
 
 ```bash
