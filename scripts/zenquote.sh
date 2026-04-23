@@ -48,9 +48,19 @@ fetch_quote() {
   echo "$response"
 }
 
-# Fetch quote image URL
+# Fetch quote image and save to file
 fetch_image() {
-  echo "${API_BASE}/image"
+  local output_path="${1:-/tmp/zenquote_image.jpg}"
+  local api_url="${API_BASE}/image"
+  
+  # Download image
+  curl -s "$api_url" -o "$output_path" 2>/dev/null
+  
+  if [[ -f "$output_path" && -s "$output_path" ]]; then
+    echo "$output_path"
+  else
+    echo ""
+  fi
 }
 
 # Format quote for display
@@ -174,8 +184,12 @@ main() {
       get_quotes "$1"
       ;;
     image)
-      local img_url=$(fetch_image)
-      echo "{\"image_url\": \"${img_url}\"}"
+      local img_path=$(fetch_image "/tmp/zenquote_image.jpg")
+      if [[ -n "$img_path" && -f "$img_path" ]]; then
+        echo "{\"image_path\": \"${img_path}\", \"caption\": \"Provided by ZenQuotes API https://zenquotes.io/\"}"
+      else
+        echo "{\"error\": \"Failed to fetch image\"}"
+      fi
       ;;
     setup)
       local chat_id="$1"

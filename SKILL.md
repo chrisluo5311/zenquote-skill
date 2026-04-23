@@ -49,8 +49,22 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 - `/zenQuote` or `/zenQuote today` - Today's inspirational quote
 - `/zenQuote random` - Random quote
 - `/zenQuote quotes` - Get 5 quotes
-- `/zenQuote image` - Quote image URL
+- `/zenQuote image` - Get and send quote image
 - `/zenQuote setup` - Configure daily delivery
+
+## Image Command Handling
+
+When user requests `/zenQuote image`, execute:
+```bash
+bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh image
+```
+
+The script will download the image and output:
+```json
+{"image_path": "/tmp/zenquote_image.jpg", "caption": "Provided by ZenQuotes API https://zenquotes.io/"}
+```
+
+**AI must then send the image using the message tool with the provided caption.**
 
 ## Daily Cron Setup
 

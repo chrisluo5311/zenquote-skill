@@ -40,7 +40,7 @@ bash ~/.openclaw/skills/zenquote/scripts/zenquote.sh setup <chat_id>
 | `today` | Get today's quote |
 | `random` | Get random quote |
 | `quotes [count]` | Get multiple quotes (default 5) |
-| `image` | Get quote image URL |
+| `image` | Get and download quote image |
 | `setup <chat_id>` | Setup daily cron job |
 
 ## User Commands
